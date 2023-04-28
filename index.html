@@ -52,20 +52,21 @@
     <script charset="utf-8" src="https://static.line-scdn.net/liff/edge/2.1/sdk.js"></script>
     <script>
         
-        // ウェブアプリのURL
+// ウェブアプリのURL
 const endpoint = "https://script.google.com/macros/s/AKfycbyru4-1-tiUc0VjJNHM3Qdm4tUZIFawqo8aRczvzsrm9vpUcqu6410IeG0x-a2pFg8s/exec";
 
+// liff.getContextでユーザー情報オブジェクトをとってくる。（LINEにログインしていることが前提）
+const context = liff.getContext()
+const lUserId = context.userId
+
 function getSheetData(){
-	
-	// liff.getContextでユーザー情報オブジェクトをとってくる。（LINEにログインしていることが前提）
-	const context = liff.getContext()
 	  
     $.ajax({
         type: 'GET',
         url: endpoint,
         dataType: 'jsonp',
         data: {
-            lUserId:context.userId      //LINEUserID
+            lUserId:lUserId      //LINEUserID
         },
     })
     .done(function(out){
@@ -130,7 +131,6 @@ function getSheetData(){
     })
     
 }
-
         $(document).ready(function () {
             const liffId = "1660996109-5XePRDqM";
             initializeLiff(liffId);
