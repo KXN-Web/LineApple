@@ -40,7 +40,7 @@
         </div
         <p class="mt-3">お問合せ内容</p>
         <div>
-            <textarea maxlength="500" rows="5" class="form-control w-100 mt-1" name="naiyo"></textarea>
+            <textarea maxlength="500" rows="5" class="form-control w-100 mt-1" id="naiyo"></textarea>
         </div>
         <input type="submit" class="mt-4 btn btn-primary" value="送信">
     </form>
@@ -91,7 +91,7 @@
                 const jusyo = $('input[name="jusyo"]').val();
                 const moyori = $('input[name="moyori"]').val();
                 const moyoriTime = $('input[name="moyoriTime"]').val();
-                const naiyo = $('input[name="naiyo"]').val();
+                const naiyo = document.getElementById("naiyo").value;
                 const msg = `${flg}\n${name}\n${furigana}\n${phoneNo}\n${eMail}\n${jusyo}\n${moyori}\n${moyoriTime}\n${naiyo}`;
                 sendText(msg);
                 return false;
