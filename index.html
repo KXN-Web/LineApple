@@ -8,6 +8,91 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/themes/base/jquery-ui.min.css">
 </head>
 <body>
+<script>
+    // ウェブアプリのURL
+	const endpoint = "https://script.google.com/macros/s/AKfycbyru4-1-tiUc0VjJNHM3Qdm4tUZIFawqo8aRczvzsrm9vpUcqu6410IeG0x-a2pFg8s/exec";
+
+	liff.getContextでユーザー情報オブジェクトをとってくる。（LINEにログインしていることが前提）
+	const context = liff.getContext()
+	const lUserId = context.userId
+
+	function getSheetData(){
+	
+	// liff.getContextでユーザー情報オブジェクトをとってくる。（LINEにログインしていることが前提）
+	//const context = liff.getContext()
+	  
+    $.ajax({
+        type: 'GET',
+        url: endpoint,
+        dataType: 'jsonp',
+        data: {
+            lUserId:12      //LINEUserID
+        },
+    })
+    .done(function(out){
+        //受け取ったデータをここで処理する
+        console.log(out.data);
+        let item = out.data; 
+                
+        if(item[0] != "データなし"){
+			const name    = item[0];
+			const furigana = item[1];
+			const phoneNo  = item[2];
+			const eMail  = item[3];
+			const jusyo = item[4];
+			const moyori = item[5];
+			const moyoriTime = item[6];
+			
+			// 各要素の取得
+			var fname = document.getElementById("name");
+			var ffurigana = document.getElementById("furigana");
+			var fphoneNo = document.getElementById("phoneNo");
+			var feMail = document.getElementById("eMail");
+			var fjusyo = document.getElementById("jusyo");
+			var fmoyori = document.getElementById("moyori");
+			var fmoyoriTime = document.getElementById("moyoriTime");
+			
+			
+			// 各要素の編集
+			fname.required = false;
+			fname.disabled = true;
+			fname.value = name;
+			
+			ffurigana.required = false;
+			ffurigana.disabled = true;
+			ffurigana.value = furigana;
+
+			fphoneNo.required = false;
+			fphoneNo.disabled = true;
+			fphoneNo.value = phoneNo;
+
+			feMail.required = false;
+			feMail.disabled = true;
+			feMail.value = eMail;
+
+			fjusyo.required = false;
+			fjusyo.disabled = true;
+			fjusyo.value = jusyo;
+
+			fmoyori.required = false;
+			fmoyori.disabled = true;
+			fmoyori.value = moyori;
+
+			fmoyoriTime.required = false;
+			fmoyoriTime.disabled = true;
+			fmoyoriTime.value = moyoriTime;
+
+        }
+
+    })
+    .fail(function() {
+        //エラー時の処理を書く
+        console.log('エラー');
+    })
+    
+}
+</script>
+
 
     <form class="w-75 mx-auto">
         <p class="mt-3">お名前【必須】</p>
@@ -51,7 +136,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" crossorigin="anonymous"></script>
     <script charset="utf-8" src="https://static.line-scdn.net/liff/edge/2.1/sdk.js"></script>
     <script>
-
+    
         $(document).ready(function () {
             const liffId = "1660996109-5XePRDqM";
             initializeLiff(liffId);
