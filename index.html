@@ -103,7 +103,6 @@
                 const naiyo = (document.getElementById("naiyo").value).replace( /\r?\n/g , ' ');
                 const msg = `${flg}\n${name}\n${furigana}\n${phoneNo}\n${eMail}\n${jusyo}\n${moyori}\n${moyoriTime}\n${naiyo}`;
                 const fix = sendText(msg);
-                alert(fix);
                 return false;
             });
         });
