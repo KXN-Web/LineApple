@@ -96,7 +96,7 @@
 
         $(function () {
             $('form').submit(function () {
-                flg     = "【お問合せ】";
+                var flg     = "【お問合せ】";
                 const name    = $('input[name="name"]').val();
                 const furigana = $('input[name="furigana"]').val();
                 const phoneNo  = $('input[name="phoneNo"]').val();
@@ -105,7 +105,7 @@
                 const moyori = $('input[name="moyori"]').val();
                 const moyoriTime = $('input[name="moyoriTime"]').val();
                 const naiyo = (document.getElementById("naiyo").value).replace( /\r?\n/g , ' ');
-                msg = `${flg}\n${name}\n${furigana}\n${phoneNo}\n${eMail}\n${jusyo}\n${moyori}\n${moyoriTime}\n${naiyo}`;
+                var msg = `${flg}\n${name}\n${furigana}\n${phoneNo}\n${eMail}\n${jusyo}\n${moyori}\n${moyoriTime}\n${naiyo}`;
                 sendText(msg);
                 return false;
             });
