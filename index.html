@@ -10,10 +10,10 @@
         
         (function (){
             
-            var flg     = "ロード";
-            var msg = `${flg}`;
+            var load     = "ロード";
+            var load_msg = `${load}`;
             /*var userDate = sendText(msg);*/
-            alert(msg);
+            alert(load_msg);
         })();
         
      </script>
@@ -96,7 +96,7 @@
 
         $(function () {
             $('form').submit(function () {
-                var flg     = "【お問合せ】";
+                const flg     = "【お問合せ】";
                 const name    = $('input[name="name"]').val();
                 const furigana = $('input[name="furigana"]').val();
                 const phoneNo  = $('input[name="phoneNo"]').val();
@@ -105,7 +105,7 @@
                 const moyori = $('input[name="moyori"]').val();
                 const moyoriTime = $('input[name="moyoriTime"]').val();
                 const naiyo = (document.getElementById("naiyo").value).replace( /\r?\n/g , ' ');
-                var msg = `${flg}\n${name}\n${furigana}\n${phoneNo}\n${eMail}\n${jusyo}\n${moyori}\n${moyoriTime}\n${naiyo}`;
+                const msg = `${flg}\n${name}\n${furigana}\n${phoneNo}\n${eMail}\n${jusyo}\n${moyori}\n${moyoriTime}\n${naiyo}`;
                 sendText(msg);
                 return false;
             });
