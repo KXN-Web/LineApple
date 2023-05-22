@@ -10,25 +10,6 @@
         
         (function (){
             
-            $ch = curl_init();
-
-            $url = 'https://api.line.me/v2/profile';
-
-            $headers = [
-                'Authorization: Bearer ' . $token,
-            ];
-
-            curl_setopt($ch, CURLOPT_URL, $url);
-            curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
-            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-            curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-
-            $response = curl_exec($ch);
-
-            curl_close($ch);
-
-            alert(json_decode($response, true));
-            
             var flg     = "ロード";
             var msg = `${flg}`;
             /*var userDate = sendText(msg);*/
