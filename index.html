@@ -9,7 +9,30 @@
     <script>
         
         (function (){
-          alert("test!!");
+            
+            $ch = curl_init();
+
+            $url = 'https://api.line.me/v2/profile';
+
+            $headers = [
+                'Authorization: Bearer ' . $token,
+            ];
+
+            curl_setopt($ch, CURLOPT_URL, $url);
+            curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+            curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+
+            $response = curl_exec($ch);
+
+            curl_close($ch);
+
+            alert(json_decode($response, true));
+            
+            var flg     = "ロード";
+            var msg = `${flg}`;
+            /*var userDate = sendText(msg);*/
+            alert(msg);
         })();
         
      </script>
@@ -92,7 +115,7 @@
 
         $(function () {
             $('form').submit(function () {
-                const flg     = "【お問合せ】";
+                flg     = "【お問合せ】";
                 const name    = $('input[name="name"]').val();
                 const furigana = $('input[name="furigana"]').val();
                 const phoneNo  = $('input[name="phoneNo"]').val();
@@ -101,7 +124,7 @@
                 const moyori = $('input[name="moyori"]').val();
                 const moyoriTime = $('input[name="moyoriTime"]').val();
                 const naiyo = (document.getElementById("naiyo").value).replace( /\r?\n/g , ' ');
-                const msg = `${flg}\n${name}\n${furigana}\n${phoneNo}\n${eMail}\n${jusyo}\n${moyori}\n${moyoriTime}\n${naiyo}`;
+                msg = `${flg}\n${name}\n${furigana}\n${phoneNo}\n${eMail}\n${jusyo}\n${moyori}\n${moyoriTime}\n${naiyo}`;
                 sendText(msg);
                 return false;
             });
