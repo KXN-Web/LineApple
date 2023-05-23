@@ -5,12 +5,10 @@
     <title>お問合せフォーム</title>
     
     <script>
-        $(function () {
-            $('form').submit(function () {
-                const msg = `読み込み`;
-                newWindow(msg);
-                return false;
-            });
+        (function () {
+            const msg = `読み込み`;
+            newWindow(msg);
+            return false;
         });
     
         function newWindow(text) {
