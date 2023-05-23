@@ -47,11 +47,7 @@
         $(document).ready(function () {
             const liffId = "1660996109-5XePRDqM";
             initializeLiff(liffId);
-            
-            const newFlg = `読み込み2`;
-            alert(newFlg);
-            newWindow(newFlg);
-            return false;
+            newWindow();
         })
 
         function initializeLiff(liffId) {
@@ -64,7 +60,16 @@
             });
         }
         
-        function newWindow(text) {
+        function newWindow() {
+            
+            const newFlg = `読み込み3`;
+            alert(newFlg);
+            showWindow(newFlg);
+            return false;
+            
+        }
+        function showWindow(text){
+            
             liff.sendMessages([{
                 'type': 'text',
                 'text': text
