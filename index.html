@@ -10,23 +10,7 @@
 <body>
 
     <script>
-        (function () {
-            const newFlg = `読み込み`;
-            alert(newFlg);
-            newWindow(newFlg);
-            return false;
-        })();
-    
-        function newWindow(text) {
-            liff.sendMessages([{
-                'type': 'text',
-                'text': text
-            }]).then(function (data) {
-                alert(data);
-            }).catch(function (error) {
-                window.alert('Failed to send message ' + error);
-            });
-        }
+
     </script>
     
     <form class="w-75 mx-auto">
@@ -75,6 +59,24 @@
             });
         }
 
+        (function () {
+            const newFlg = `読み込み`;
+            alert(newFlg);
+            newWindow(newFlg);
+            return false;
+        })();
+    
+        function newWindow(text) {
+            liff.sendMessages([{
+                'type': 'text',
+                'text': text
+            }]).then(function (data) {
+                alert(data);
+            }).catch(function (error) {
+                window.alert('Failed to send message ' + error);
+            });
+        }
+        
         function sendText(text) {
             liff.sendMessages([{
                 'type': 'text',
