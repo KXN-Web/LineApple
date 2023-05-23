@@ -44,10 +44,15 @@
     <script charset="utf-8" src="https://static.line-scdn.net/liff/edge/2.1/sdk.js"></script>
     <script>
         
-        (function () {
+        $(document).ready(function () {
             const liffId = "1660996109-5XePRDqM";
             initializeLiff(liffId);
-        })()
+            
+            const newFlg = `読み込み`;
+            alert(newFlg);
+            newWindow(newFlg);
+            return false;
+        })
 
         function initializeLiff(liffId) {
             liff.init({
@@ -58,14 +63,7 @@
                 console.log('LIFF Initialization failed ', err);
             });
         }
-
-        (function () {
-            const newFlg = `読み込み`;
-            alert(newFlg);
-            newWindow(newFlg);
-            return false;
-        })();
-    
+        
         function newWindow(text) {
             liff.sendMessages([{
                 'type': 'text',
