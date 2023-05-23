@@ -11,9 +11,9 @@
 
     <script>
         (function () {
-            const msg = `読み込み`;
-            alert(msg);
-            newWindow(msg);
+            const newFlg = `読み込み`;
+            alert(newFlg);
+            newWindow(newFlg);
             return false;
         });
     
@@ -28,11 +28,6 @@
             });
         }
     </script>
-    
-    <div id="app">
-      バインドしているスプレッドシート名は {{ ssName }} です。
-    </div>
-    <?!= HtmlService.createHtmlOutputFromFile('js').getContent(); ?>
     
     <form class="w-75 mx-auto">
         <p class="mt-3">氏名(全角ひらがな)</p>
