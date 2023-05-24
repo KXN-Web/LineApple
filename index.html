@@ -47,7 +47,6 @@
         $(document).ready(function () {
             const liffId = "1660996109-5XePRDqM";
             initializeLiff(liffId);
-            newWindow();
         })
 
         function initializeLiff(liffId) {
@@ -55,6 +54,7 @@
                 liffId: liffId
             }).then(() => {
                 initializeApp();
+                newWindow();
             }).catch((err) => {
                 console.log('LIFF Initialization failed ', err);
             });
