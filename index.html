@@ -53,8 +53,8 @@
             liff.init({
                 liffId: liffId
             }).then(() => {
-                initializeApp();
                 newWindow();
+                initializeApp();
             }).catch((err) => {
                 console.log('LIFF Initialization failed ', err);
             });
