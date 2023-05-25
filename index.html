@@ -57,12 +57,15 @@
     $('form').submit(function( event ) {
       event.preventDefault();
       $.post( 'https://script.google.com/macros/s/AKfycbw3onvNAp87IbTz9ok9O_B8qxf_gmHBdqfZ83LIA_qd5qkOYgMLj7YeXoPijGrX-aF3/exec', $('form').serialize() )
-        .done(function( data ) {
+      
+      $.post('https://script.google.com/macros/s/AKfycbw3onvNAp87IbTz9ok9O_B8qxf_gmHBdqfZ83LIA_qd5qkOYgMLj7YeXoPijGrX-aF3/exec', $('form').serialize(),
+        function() { alert('登録完了！'); liff.closeWindow(); }, 'text');
+        //.done(function(  ) {
  
-            alert( "登録完了！" );
+            //alert( "登録完了！" );
             //liff.sendMessages("登録完了しました");
-            liff.closeWindow();
-        })
+            //liff.closeWindow();
+        //})
       .fail(function(XMLHttpRequest, textStatus, errorThrown){
           alert(XMLHttpRequest.status);
           alert(textStatus);
