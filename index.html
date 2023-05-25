@@ -57,11 +57,11 @@
     $('form').submit(function( event ) {
       event.preventDefault();
       $.post('https://script.google.com/macros/s/AKfycbw3onvNAp87IbTz9ok9O_B8qxf_gmHBdqfZ83LIA_qd5qkOYgMLj7YeXoPijGrX-aF3/exec', $('form').serialize());
-        //.done(function(  ) {
+        .done(function() {
  
-            //alert( "登録完了！" );
-            //liff.sendMessages("登録完了しました");
-            //liff.closeWindow();
+          alert( "登録完了！" );
+          //liff.sendMessages("登録完了しました");
+          //liff.closeWindow();
         //})
       .fail(function(XMLHttpRequest, textStatus, errorThrown){
           alert(XMLHttpRequest.status);
