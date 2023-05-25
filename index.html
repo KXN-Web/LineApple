@@ -63,6 +63,12 @@
             //liff.sendMessages("登録完了しました");
             liff.closeWindow();
         })
+      .fail(function(XMLHttpRequest, textStatus, errorThrown){
+          alert(XMLHttpRequest.status);
+          alert(textStatus);
+          alert(errorThrown);
+})
+
     });
   </script>
 </body>
