@@ -56,7 +56,7 @@
 
       $('form').submit(function( event ) {
         event.preventDefault();
-
+        alert('送るよ！');
         const rp = require('request-promise');
         const formData = $('form').serialize();
         rp({
