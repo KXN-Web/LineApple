@@ -60,36 +60,21 @@
         alert('送るよ！！！');
         
         const formData = $('form').serialize();
-        
-        const reqp  = require('request-promise-native');
-        const options = {
-          url: "https://script.google.com/macros/s/AKfycbw3onvNAp87IbTz9ok9O_B8qxf_gmHBdqfZ83LIA_qd5qkOYgMLj7YeXoPijGrX-aF3/exec",
-          method: "POST"
-         form : formData,
-         followAllRedirects : true
-        };
+       
+        var URL = "https://script.google.com/macros/s/AKfycbw3onvNAp87IbTz9ok9O_B8qxf_gmHBdqfZ83LIA_qd5qkOYgMLj7YeXoPijGrX-aF3/exec";
 
-        reqp(options)
-          .then((html)=>{
-            console.log(html);
-          })
-        .then(function (parsedBody) {
-          // 戻りも自動でJSONパースされる
-          alert("成功！！！");
-        })
-        .catch(function (err) {
-            alert("失敗！！！");
-        })
-      });
+        var postparam = 
+         {
+           "method"     : "POST",
+           "mode"       : "no-cors",
+           "Content-Type" : "application/x-www-form-urlencoded",
+           "body" : formData,
+           "followAllRedirects" : true
+         };
+
+         fetch(URL, postparam);
         
-        /*
-        $.post( 'https://script.google.com/macros/s/AKfycbw3onvNAp87IbTz9ok9O_B8qxf_gmHBdqfZ83LIA_qd5qkOYgMLj7YeXoPijGrX-aF3/exec', $('form').serialize() )
-         .done(function() {
-            alert("成功！");
-          })
-        .fail( function() { 
-            alert("失敗！");
-          } )
+        
       }); 
       */
         
