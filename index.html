@@ -56,7 +56,7 @@
 
       $('form').submit(function( event ) {
         event.preventDefault();
-        
+
         const rp = require('request-promise');
         const formData = $('form').serialize();
         rp({
@@ -65,7 +65,7 @@
           form : formData,
           followAllRedirects : true
         })
-        
+
         fetch(END_POINT, postparam)
           .then((response) => {
             alert('成功');
@@ -73,6 +73,7 @@
           .catch((error) => {
             alert('失敗');
           });
+       }
         
         
         /*
