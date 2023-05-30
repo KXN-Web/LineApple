@@ -30,6 +30,9 @@
     <div>
         <input class="form-control w-100 mt-1" name="sukuwat" required>
     </div>
+    <div>
+        <input type="submit" class="mt-4 btn btn-primary" value="送信">
+    </div>
   </form>
 
   <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
@@ -56,12 +59,7 @@
 
     $('form').submit(function( event ) {
       event.preventDefault();
-      $.post( 'https://script.google.com/macros/s/AKfycbw3onvNAp87IbTz9ok9O_B8qxf_gmHBdqfZ83LIA_qd5qkOYgMLj7YeXoPijGrX-aF3/exec', $('form').serialize(),
-      function(data){
-        //リクエストが成功した際に実行する関数
-        alert(data);
-      }
-    );
+      $.post( 'https://script.google.com/macros/s/AKfycbw3onvNAp87IbTz9ok9O_B8qxf_gmHBdqfZ83LIA_qd5qkOYgMLj7YeXoPijGrX-aF3/exec', $('form').serialize());
   </script>
 </body>
 </html>
