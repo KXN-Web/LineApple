@@ -57,19 +57,25 @@
       $('form').submit(function( event ) {
         
         event.preventDefault();
-        alert('送るよ！');
-        const rp = require('request-promise');
+        alert('送るよ！！！');
+        
         const formData = $('form').serialize();
         
-        rp({
-          url : 'https://script.google.com/macros/s/AKfycbw3onvNAp87IbTz9ok9O_B8qxf_gmHBdqfZ83LIA_qd5qkOYgMLj7YeXoPijGrX-aF3/exec',
-          method : 'POST',
-          json : $('form').serialize(),
-          followAllRedirects : true
-        })
+        const reqp  = require('request-promise-native');
+        const options = {
+          url: "https://script.google.com/macros/s/AKfycbw3onvNAp87IbTz9ok9O_B8qxf_gmHBdqfZ83LIA_qd5qkOYgMLj7YeXoPijGrX-aF3/exec",
+          method: "POST"
+         form : formData,
+         followAllRedirects : true
+        };
+
+        reqp(options)
+          .then((html)=>{
+            console.log(html);
+          })
         .then(function (parsedBody) {
           // 戻りも自動でJSONパースされる
-          alert("成功！!!!");
+          alert("成功！！！");
         })
         .catch(function (err) {
             alert("失敗！！！");
