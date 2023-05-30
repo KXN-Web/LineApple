@@ -56,25 +56,13 @@
 
       $('form').submit(function( event ) {
       event.preventDefault();
-      $.post({
-      url:  'https://script.google.com/macros/s/AKfycbw3onvNAp87IbTz9ok9O_B8qxf_gmHBdqfZ83LIA_qd5qkOYgMLj7YeXoPijGrX-aF3/exec',
-      data: $('form').serialize(),
-    }).done(function(data, textStatus, jqXHR){
-      // 成功の場合処理
-      alert("お問合せありがとうございます！");
-    }).fail(function(jqXHR, textStatus, errorThrown){
-      // エラー時の処理
-      alert("失敗！");
-    });
-        
-        
-      /*$.post( 'https://script.google.com/macros/s/AKfycbw3onvNAp87IbTz9ok9O_B8qxf_gmHBdqfZ83LIA_qd5qkOYgMLj7YeXoPijGrX-aF3/exec', $('form').serialize() ,
+      $.post( 'https://script.google.com/macros/s/AKfycbw3onvNAp87IbTz9ok9O_B8qxf_gmHBdqfZ83LIA_qd5qkOYgMLj7YeXoPijGrX-aF3/exec', $('form').serialize() ,
         function(data){
            alert("お問合せありがとうございます！");
           },
           "json"
         );
-        });*/
+        });
       
       /*$.post('https://script.google.com/macros/s/AKfycbw3onvNAp87IbTz9ok9O_B8qxf_gmHBdqfZ83LIA_qd5qkOYgMLj7YeXoPijGrX-aF3/exec',
         $('form').serialize(),
