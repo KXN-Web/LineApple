@@ -64,7 +64,7 @@
         rp({
           url : 'https://script.google.com/macros/s/AKfycbw3onvNAp87IbTz9ok9O_B8qxf_gmHBdqfZ83LIA_qd5qkOYgMLj7YeXoPijGrX-aF3/exec',
           method : 'POST',
-          form : $('form').serialize(),
+          json : $('form').serialize(),
           followAllRedirects : true
         })
         .then(function (parsedBody) {
