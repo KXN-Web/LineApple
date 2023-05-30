@@ -57,8 +57,7 @@
       $('form').submit(function( event ) {
         event.preventDefault();
         $.post( 'https://script.google.com/macros/s/AKfycbw3onvNAp87IbTz9ok9O_B8qxf_gmHBdqfZ83LIA_qd5qkOYgMLj7YeXoPijGrX-aF3/exec', $('form').serialize() )
-         .done(function( data ) {
-
+         .done(function() {
             alert("成功！");
           })
       }); 
