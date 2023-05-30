@@ -57,26 +57,33 @@
       $('form').submit(function( event ) {
         
         event.preventDefault();
-        alert('送るよ！！！');
-        
-        const formData = $('form');
-       
-        var URL = "https://script.google.com/macros/s/AKfycbw3onvNAp87IbTz9ok9O_B8qxf_gmHBdqfZ83LIA_qd5qkOYgMLj7YeXoPijGrX-aF3/exec";
+        alert($('form'));
+        const request = require('request');
 
-        var postparam = 
-         {
-           "method"     : "POST",
-           "mode"       : "no-cors",
-           "Content-Type" : "application/x-www-form-urlencoded",
-           "body" : formData,
-           "followAllRedirects" : true
-         };
+        const payload = {
+          name: 'name',
+          udetate: 'udetate'
+          fukkin: 'fukkin'
+          haikin: 'haikin'
+          sukuwat: 'sukuwat'
+        };
 
-         fetch(URL, postparam);
-        
-        
+        const option = {
+          uri: 'https://script.google.com/macros/s/AKfycbw3onvNAp87IbTz9ok9O_B8qxf_gmHBdqfZ83LIA_qd5qkOYgMLj7YeXoPijGrX-aF3/exec',
+          headers: {
+            'Content-type': 'application/json'
+          },
+          json: true,
+          followAllRedirects: true,
+          form: payload
+        };
+
+        request.post(option, function(err, resp, body) {
+          alert("成功！！！！！！！！！！！！！！");
+          //console.log(body);
+        })
       }) 
-      */
+      
         
       /*$.post('https://script.google.com/macros/s/AKfycbw3onvNAp87IbTz9ok9O_B8qxf_gmHBdqfZ83LIA_qd5qkOYgMLj7YeXoPijGrX-aF3/exec',
         $('form').serialize(),
