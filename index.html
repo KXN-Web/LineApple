@@ -54,9 +54,6 @@
       $('form').append(`<input type="submit" class="mt-4 btn btn-primary" value="送信">`);
     })
 
-    $('form').submit(function( event ) {
-      event.preventDefault();
-      
       $('form').submit(function( event ) {
       event.preventDefault();
       $.post( 'https://*******************', $('form').serialize() ,
