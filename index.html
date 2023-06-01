@@ -4,7 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+    
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/themes/base/jquery-ui.min.css">
+    
     <!--Bootstrap-->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -17,13 +21,15 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
     </script>
+    
+    
 
     <title>GAS API</title>
 </head>
 
 <body>
     <div class="container">
-    <form action="#" method="POST">
+    <form action="#" method="POST" class="w-75 mx-auto">
         <div class="form-group ">
             <label for="name">氏名</label>
             <input type="text" id="name" name="name" class="form-control" required>
@@ -143,7 +149,7 @@
                 const child1-birthday = $('input[name="child1-birthday"]').val();
                 const child2-birthday = $('input[name="child2-birthday"]').val();
                 const child3-birthday = $('input[name="child3-birthday"]').val();
-                const msg = `${name}\n${furigana}\n${phoneNo}\n${e-mail}\n${address}\n${station}\n${time}\n${child1-birthday}\n${child2-birthday}\n${child3-birthday}`;
+                const msg = `${name}\r${furigana}\r${phoneNo}\r${e-mail}\r${address}\r${station}\r${time}\r${child1-birthday}\r${child2-birthday}\r${child3-birthday}`;
                 sendText(msg);
                 return false;
             });
