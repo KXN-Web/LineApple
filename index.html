@@ -108,12 +108,31 @@
                 const child1birthday = $('input[name="child1birthday"]').val();
                 const child2birthday = $('input[name="child2birthday"]').val();
                 const child3birthday = $('input[name="child3birthday"]').val();
-                const msg = `"氏名【"${name}"】"\n"フリガナ【"${furigana}"]"\n"電話番号【"${phoneNo}"】"\n"メールアドレス【"${email}"】"\n"住所【"${address}"】"\n"最寄り駅【"${station}"】"\n"駅からの時間【"${time}"】"\n"一人目のお子様【"${child1birthday}"】"\n"二人目のお子様【"${child2birthday}"】"\n"三人目のお子様【"${child3birthday}"】"`;
+                const msg = `氏名【${name}】\nフリガナ【${furigana}】\n電話番号【${phoneNo}】\nメールアドレス【${email}】\n住所【${address}】\n最寄り駅【${station}】\n駅からの時間【${time}】\n一人目のお子様【${child1birthday}】\n二人目のお子様【${child2birthday}】\n三人目のお子様【${child3birthday}】`;
                 sendText(msg);
                 return false;
             });
         });
 
+    </script>
+    
+    <script>
+        const endpoint = "https://script.google.com/macros/s/AKfycbzczsoEpnEn_-Yy5BdgINcXmAkOgvd7HByeqyzwem13yGhoQIZE0_ieQQzvEV5kiD7vUw/exec";
+
+            //APIを使って非同期データを取得する
+            fetch(endpoint)
+            .then(response => response.json())
+            /*成功した処理*/
+            .then(data => {
+                //JSONから配列に変換
+                const object = data;
+                //inputタグそれぞれに取得したデータを設定
+                $('input').each(function (index, element) {
+                    if (object[0][$(element).attr('name')]) {
+                        $(element).val([object[0][$(element).attr('name')]]);
+                    }
+                });
+            });
     </script>
 </body>
 </html>
