@@ -119,17 +119,29 @@
 
         $(function () {
             $('form').submit(function () {
+                alert("start！");
                 const name    = $('input[name="name"]').val();
+                alert(name);
                 const furigana = $('input[name="furigana"]').val();
+                alert(furigana);
                 const phoneNo  = $('input[name="phoneNo"]').val();
+                alert(phoneNo);
                 const e-mail  = $('input[name="e-mail"]').val();
+                alert(e-mail);
                 const address = $('input[name="address"]').val();
+                alert(address);
                 const station = $('input[name="station"]').val();
+                alert(station);
                 const time = $('input[name="time"]').val();
+                alert(time);
                 const child1-birthday = $('input[name="child1-birthday"]').val();
+                alert(child1-birthday);
                 const child2-birthday = $('input[name="child2-birthday"]').val();
+                alert(child2-birthday);
                 const child3-birthday = $('input[name="child3-birthday"]').val();
+                alert(child3-birthday);
                 const msg = `${name}\r${furigana}\r${phoneNo}\r${e-mail}\r${address}\r${station}\r${time}\r${child1-birthday}\r${child2-birthday}\r${child3-birthday}`;
+                alert(msg);
                 sendText(msg);
                 return false;
             });
