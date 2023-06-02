@@ -76,7 +76,17 @@
             const liffId = "1660996109-5XePRDqM";
             initializeLiff(liffId);
         })
-
+        
+        liff.ready.then(() => {
+          if (!liff.isLoggedIn()) {
+            liff.login();
+          }
+          const idToken = liff.getDecodedIDToken();
+          const userId = idToken.sub;
+          getData(userId);
+        })
+        
+        
         function initializeLiff(liffId) {
             liff.init({
                 liffId: liffId
@@ -123,10 +133,11 @@
     </script>
     
     <script>
-        const endpoint = "https://script.google.com/macros/s/AKfycbzczsoEpnEn_-Yy5BdgINcXmAkOgvd7HByeqyzwem13yGhoQIZE0_ieQQzvEV5kiD7vUw/exec";
-
+        function getData(userID) {
+            const endpoint = "https://script.google.com/macros/s/AKfycbzczsoEpnEn_-Yy5BdgINcXmAkOgvd7HByeqyzwem13yGhoQIZE0_ieQQzvEV5kiD7vUw/exec";
+              
             //APIを使って非同期データを取得する
-            fetch(endpoint)
+            fetch((urlOf(endpoint, { userID: userID })))
             .then(response => response.json())
             /*成功した処理*/
             .then(data => {
@@ -139,6 +150,12 @@
                     }
                 });
             });
+         }
+        
+        function urlOf(url, params) {
+            return `${url}?${Object.entries(params).map(([key, value]) => `${encodeURIComponent(key)}=${encodeURIComponent(value)}`).join('&')}`;
+        }
+
     </script>
 </body>
 </html>
