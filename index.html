@@ -7,10 +7,50 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rossorigin="anonymous">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/themes/base/jquery-ui.min.css">
-    <title>【ケーバイエヌ】</title>
+    <title>【ケーバイエヌ】お問合せフォーム</title>
+	<style>
+		/* Loading Block */
+		#loading {
+		  width: 100vw;
+		  height: 100vh;
+		  transition: all 1s;
+		  background-color: #fff;
+		  position: fixed;
+		  top: 0;
+		  left: 0;
+		  z-index: 9999;
+		}
+		.spinner {
+		  width: 100px;
+		  height: 100px;
+		  margin: 200px auto;
+		  background-color: #7BCAC6;
+		  border-radius: 100%;
+		  animation: sk-scaleout 1.0s infinite ease-in-out;
+		}
+		/* Loading Animation */
+		@keyframes sk-scaleout {
+		  0% {
+			transform: scale(0);
+		  } 100% {
+			transform: scale(1.0);
+			opacity: 0;
+		  }
+		}
+
+		/* Hide Loading Block */
+		.loaded {
+		  opacity: 0;
+		  visibility: hidden;
+		}
+	</style>
 </head>
 
 <body>
+	<div id="loading">
+	  <div class="spinner"></div>
+	</div>
+    
     <form class="w-75 mx-auto"  name="form1">
         <p class="mt-3">■ お問合せ内容 ■■■■■■</p>
         <div>
@@ -131,7 +171,17 @@
         });
 
     </script>
-    
+    <script>
+        window.onload = function() {
+            const spinner = document.getElementById('loading');
+
+            setTimeout(function() {
+                // Add .loaded to .loading
+                spinner.classList.add('loaded');
+            }, 3000);
+
+        }
+	</script>
     <script>
         function getData(userID) {
             const endpoint = "https://script.google.com/macros/s/AKfycbzczsoEpnEn_-Yy5BdgINcXmAkOgvd7HByeqyzwem13yGhoQIZE0_ieQQzvEV5kiD7vUw/exec";
