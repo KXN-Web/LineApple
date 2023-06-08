@@ -123,17 +123,19 @@
         <h1 class="heading12" data-number="03">■ お子様の情報</h1>
         <label class="required">一人目のお誕生日</label>
         <div>
-            <input type="date" class="form-control w-100 mt-1" id="child1birthday" name="child1birthday" required>
+            <input type="date" class="form-control w-100 mt-1" id="child1birthday" name="child1birthday" >
         </div>
         <label>二人目のお誕生日</label>
         <div>
-            <input type="date" class="form-control w-100 mt-1" id="child2birthday" name="child2birthday" required>
+            <input type="date" class="form-control w-100 mt-1" id="child2birthday" name="child2birthday" >
         </div>
         <label>三人目のお誕生日</label>
         <div>
-            <input type="date" class="form-control w-100 mt-1" id="child3birthday" name="child3birthday" required>
+            <input type="date" class="form-control w-100 mt-1" id="child3birthday" name="child3birthday" >
         </div>
-
+	<div class="alert alert-danger" id="inputArrart" role="alert">
+	  <p  id="arartText" ></p>
+	</div>
         <input  type="submit" class="mt-4 btn btn-primary" value="送信">
     </form>
     <br>
@@ -186,6 +188,25 @@
 
         $(function () {
             $('form').submit(function () {
+				// チェックしてアラートを出す
+				let arartText = "";
+				let child1birthdayArart = "";
+				
+				// アラートメッセージの初期化
+				$("#inputArrart").html(arartText);
+				
+				// 1人目のお子様の誕生日
+				if($('input[name="child1birthday"]').val()==""){
+					child1birthdayArart  = "1人目のお子様の誕生日は必ず入力してください"
+				}
+				arartText = child1birthdayArart;
+				
+			if(arartText!=""){
+				$("#inputArrart").html(arartText);
+				document.getElementById('inputArrart').classList.add('inputArrartShow');
+				return false;
+			}
+
                 const name    = $('input[name="name"]').val();
                 const furigana = $('input[name="furigana"]').val();
                 const phoneNo  = $('input[name="phoneNo"]').val();
