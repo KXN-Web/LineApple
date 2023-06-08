@@ -78,6 +78,10 @@
 		  background-color: #C44;
 		  content: "必須";
 		}
+		
+		.label-point {
+		    font-size: 0.7em;
+		}
 	</style>
 </head>
 
@@ -87,49 +91,51 @@
 	</div>
     
     <form class="w-75 mx-auto"  name="form1">
-        <h1 class="heading12" data-number="01">お問合せ内容</h1>
-	<label class="required">お問合せ内容</label>
+	<h1 class="heading12" data-number="01"><ruby>お問合せ内容<rt>Inquiry content</rt></ruby></h1>
+	<label class="required"><span class="label-point">Inquiry content</span><br>お問合せ内容</label>
+
         <div>
             <textarea class="form-control" id="exampleFormControlTextarea1"  id="naiyo" name="naiyo" rows="3" required></textarea>
         </div>
         <br>
 
-        <h1 class="heading12" data-number="02">お客様（保護者）の情報</h1>
-        <label class="required">名前</label>
+	<h1 class="heading12" data-number="02"><ruby>お客様（保護者）の情報<rt>Customer (guardian) information</rt></ruby></h1>
+	<label class="required"><span class="label-point">Name</span><br>名前</label>
         <div>
             <input class="form-control w-100 mt-1" id="name" name="name" placeholder="" required>
         </div>
-        <label class="required">フリガナ</label>
+	<label class="required"><span class="label-point">Furigana</span><br>フリガナ</label>
         <div>
             <input class="form-control w-100 mt-1" id="furigana" name="furigana" placeholder="" required>
         </div>
-        <label class="required">電話番号</label>
+	<label class="required"><span class="label-point">PhoneNo</span><br>電話番号</label>
         <div>
             <input type="tel" class="form-control w-100 mt-1" id="phoneNo" name="phoneNo" placeholder="" required>
         </div>
-        <label class="required">メールアドレス</label>
+	<label class="required"><span class="label-point">E-mail</span><br>メールアドレス</label>
         <div>
             <input type="email" class="form-control w-100 mt-1" id="email" name="email" placeholder="" required>
         </div>
-        <label class="required">住所</label>
+	<label class="required"><span class="label-point">Address</span><br>住所</label>
         <div>
             <input class="form-control w-100 mt-1" id="address" name="address" placeholder="" required>
         </div>
-        <label class="required">最寄り駅</label>
+	<label class="required"><span class="label-point">Nearest station</span><br>最寄り駅</label>
         <div>
             <input class="form-control w-100 mt-1" id="station" name="station" required>
-            から徒歩<input class="form-control w-50 mt-1" id="time" name="time" required>
+		<br>
+		<ruby>から徒歩<rt>How many minutes</rt></ruby><input class="form-control w-50 mt-1" id="time" name="time" required>
         </div>
-        <h1 class="heading12" data-number="03">■ お子様の情報</h1>
-        <label class="required">一人目のお誕生日</label>
+	<h1 class="heading12" data-number="03"><ruby>お子様の情報<rt>Child information</rt></ruby></h1>
+	<label class="required"><span class="label-point">First child information</span><br>1人目のお子様の情報</label>
         <div>
             <input type="date" class="form-control w-100 mt-1" id="child1birthday" name="child1birthday" >
         </div>
-        <label>二人目のお誕生日</label>
+	<label><span class="label-point">Second child information</span><br>2人目のお子様の情報</label>
         <div>
             <input type="date" class="form-control w-100 mt-1" id="child2birthday" name="child2birthday" >
         </div>
-        <label>三人目のお誕生日</label>
+	<label><span class="label-point">Third child information</span><br>3人目のお子様の情報</label>
         <div>
             <input type="date" class="form-control w-100 mt-1" id="child3birthday" name="child3birthday" >
         </div>
@@ -198,7 +204,7 @@
 				
 				// 1人目のお子様の誕生日
 				if($('input[name="child1birthday"]').val()==""){
-					child1birthdayArart  = "・1人目のお子様の誕生日は必ず入力してください"
+					child1birthdayArart  = "・1人目のお子様の誕生日は必ず入力してください<br>(Please enter the date of birth of your first child)"
 				}
 				arartText = child1birthdayArart;
 				
