@@ -82,6 +82,14 @@
 		.label-point {
 		    font-size: 0.7em;
 		}
+		.attentionList {
+		    border: solid 2px #DA9DBC;
+		    background-color: #da9dbc2d;
+		    border-radius: 5px;
+		    padding: 0.2em 1em 0.2em 2.5em;
+		    position: relative;
+		    font-size: 0.75rem;
+		  }
 	</style>
 </head>
 
@@ -92,8 +100,16 @@
     
     <form class="w-75 mx-auto"  name="form1">
 	<h1 class="heading12" data-number="01"><ruby>お問合せ内容<rt>Inquiry content</rt></ruby></h1>
-	<label class="required"><span class="label-point">Inquiry content</span><br>お問合せ内容</label>
-
+	    
+	<label ><span class="label-point">For First-Time Customers</span><br>初めてご利用のお客様へ</label>
+	<div>
+		<ul class="attentionList">
+			<li>本名とLINEのお名前を一致させるため、必ずお問い合わせ内容欄へ「LINEのお名前」をご記入ください（Please be sure to enter your LINE NAME in the remarks column.）
+			</li>
+		</ul>			
+	</div>
+	    
+	<label class="required"><span class="label-point">Inquiry content</span><br>お問合せ内容</label>	    
         <div>
             <textarea class="form-control" id="exampleFormControlTextarea1"  id="naiyo" name="naiyo" rows="3" required></textarea>
         </div>
